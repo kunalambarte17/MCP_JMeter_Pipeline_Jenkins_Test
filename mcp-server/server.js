@@ -23,6 +23,8 @@ function runJMeterTest(users) {
         console.log(stdout);
 
         analyzeResults();
+        updateJMeterProperties();
+        generateHTMLReport();
     });
 }
 
@@ -86,6 +88,23 @@ function analyzeResults() {
     }
 
     console.log("===================================");
+}
+
+function updateJMeterProperties() {
+
+    console.log("\nUpdating jmeter.properties...\n");
+
+    const propertiesPath = "../jmeter.properties";
+
+    let updatedProperties = `
+threads=25
+rampup=20
+timeout=7000
+`;
+
+    fs.writeFileSync(propertiesPath, updatedProperties);
+
+    console.log("jmeter.properties updated successfully");
 }
 
 function generateHTMLReport() {
