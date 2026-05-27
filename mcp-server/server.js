@@ -111,6 +111,8 @@ function generateHTMLReport() {
 
         console.log("HTML Report Generated Successfully");
         console.log("Open reports/index.html");
+
+        process.exit(0); // SUCCESSFULLY CLOSE NODE PROCESS
     });
 }
 
